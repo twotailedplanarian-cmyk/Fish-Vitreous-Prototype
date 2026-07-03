@@ -1,80 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://clts633gux82g"]
+[gd_scene format=3 uid="uid://clts633gux82g"]
 
 [ext_resource type="Script" uid="uid://hi40dfkpvo3l" path="res://scripts/chat_bubble.gd" id="1_f8oay"]
-[ext_resource type="StyleBox" uid="uid://bigywrdwxowo5" path="res://styles/chat_bubble_self.tres" id="2_f8oay"]
 [ext_resource type="FontFile" uid="uid://bvjggau7brm36" path="res://fonts/Roboto-VariableFont_wdth,wght.ttf" id="2_xftsg"]
+[ext_resource type="StyleBox" uid="uid://bigywrdwxowo5" path="res://styles/chat_bubble_self.tres" id="3_2gcjb"]
 [ext_resource type="Texture2D" uid="uid://c15tsk6bogtca" path="res://sprites/UI elements/option button.png" id="4_2gcjb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f8oay"]
 font_size = 32
-
-[sub_resource type="Animation" id="Animation_2gcjb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/text:custom_minimum_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(420, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/text:visible_characters")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-1]
-}
-
-[sub_resource type="Animation" id="Animation_xftsg"]
-resource_name = "bubble_appear"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/text:custom_minimum_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.01),
-"transitions": PackedFloat32Array(0.329877, 0.329877),
-"update": 0,
-"values": [Vector2(420, 0), Vector2(420, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/text:visible_characters")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.01),
-"transitions": PackedFloat32Array(0.329877, 0.329877),
-"update": 1,
-"values": [-1, -1]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwy0m"]
-_data = {
-&"RESET": SubResource("Animation_2gcjb"),
-&"bubble_appear": SubResource("Animation_xftsg")
-}
 
 [sub_resource type="Animation" id="Animation_gmev1"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/path = NodePath("bubble:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -101,7 +40,7 @@ resource_name = "transparency_appear"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/path = NodePath("bubble:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -129,74 +68,54 @@ _data = {
 &"transparency_appear": SubResource("Animation_fwy0m")
 }
 
-[node name="chat_bubble" type="HBoxContainer"]
+[node name="chat_bubble" type="HBoxContainer" unique_id=1384071971]
+custom_minimum_size = Vector2(488, 0)
+offset_right = 488.0
+offset_bottom = 108.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_f8oay")
+style = "self"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
-[node name="SpeakerLabel" type="Label" parent="VBoxContainer"]
+[node name="bubble" type="VBoxContainer" parent="." unique_id=1339793372]
 unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="SpeakerLabel" type="Label" parent="bubble" unique_id=877454918]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 localize_numeral_system = false
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_xftsg")
-text = "SPEAKER"
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="bubble" unique_id=1124293434]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(52, 0)
+custom_maximum_size = Vector2(456, -1)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_styles/panel = ExtResource("2_f8oay")
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_2gcjb")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
-[node name="text" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="text" type="Label" parent="bubble/PanelContainer" unique_id=286351718]
 unique_name_in_owner = true
 modulate = Color(0, 0, 0, 1)
-custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "placeholder message"
+text = "what the heck  are you doing brozinski"
 label_settings = SubResource("LabelSettings_f8oay")
 autowrap_mode = 3
-visible_ratio = -0.0526316
 
-[node name="BubbleAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_fwy0m")
-}
-autoplay = "bubble_appear"
+[node name="TransparencyAnimation" type="AnimationPlayer" parent="." unique_id=1466722970]
+libraries/ = SubResource("AnimationLibrary_8q33v")
 
-[node name="TransparencyAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8q33v")
-}
-
-[node name="TypingEllipsis" type="Sprite2D" parent="."]
+[node name="TypingEllipsis" type="Sprite2D" parent="." unique_id=1902860490]
 visible = false
 position = Vector2(64, 59)
 scale = Vector2(0.221393, 0.556338)
 texture = ExtResource("4_2gcjb")
-
-[connection signal="animation_finished" from="BubbleAnimation" to="." method="_on_bubble_animation_animation_finished"]

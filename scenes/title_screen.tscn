@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://44hoxxbijsi"]
+[gd_scene format=3 uid="uid://44hoxxbijsi"]
 
 [ext_resource type="Script" uid="uid://cxb7af60g7aie" path="res://scripts/scene_select_button.gd" id="1_fgkus"]
 [ext_resource type="Script" uid="uid://d3ei3c4jiuo7r" path="res://scripts/title_screen.gd" id="1_s4lrb"]
@@ -7,7 +7,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgrm8"]
 bg_color = Color(0.165656, 0.165656, 0.165656, 1)
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScreen" type="Control" unique_id=1554364966]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s4lrb")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=858028565]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=746737752]
 layout_mode = 0
 offset_left = 112.0
 offset_top = 840.0
@@ -32,23 +32,23 @@ offset_right = 1776.0
 offset_bottom = 984.0
 theme_override_constants/separation = 897
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=1747380056]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 text = "Scene Select"
 script = ExtResource("1_fgkus")
 
-[node name="Credits" type="Button" parent="HBoxContainer"]
+[node name="Credits" type="Button" parent="HBoxContainer" unique_id=1607971515]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 text = "Credits"
 
-[node name="Introduction" type="Sprite2D" parent="."]
+[node name="Introduction" type="Sprite2D" parent="." unique_id=1184876099]
 position = Vector2(976, 536)
 scale = Vector2(3.49138, 3.49138)
 texture = ExtResource("2_sa3yf")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1225138202]
 visible = false
 layout_mode = 0
 offset_left = 104.0
@@ -57,21 +57,21 @@ offset_right = 1848.0
 offset_bottom = 1032.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mgrm8")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1889334525]
 layout_mode = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1012704877]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1685406978]
 custom_minimum_size = Vector2(0, 113.64)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1958438014]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 80
@@ -79,25 +79,25 @@ bbcode_enabled = true
 text = "[b][/b]CODING HELP"
 horizontal_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1031315392]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 80
 text = "AUDIO"
 horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=321347120]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1338641253]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 40
 text = "Yaika Race - Initial Vertical Dialogue System Build"
 horizontal_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1150930515]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 40
@@ -112,7 +112,7 @@ Taknation - DMV calling number
 "
 horizontal_alignment = 1
 
-[node name="ExitCredits" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ExitCredits" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1895893153]
 layout_mode = 2
 theme_override_font_sizes/font_size = 71
 text = "EXIT"

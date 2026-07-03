@@ -1,10 +1,11 @@
+@tool
 class_name ChatBubble
 extends HBoxContainer
 
 @onready var text_label: Label = %text
 @onready var speaker_label: Label = %SpeakerLabel
 @onready var panel_container: PanelContainer = %PanelContainer
-@onready var bubble_animation: AnimationPlayer = $BubbleAnimation
+@onready var bubble: VBoxContainer = %bubble
 
 var typing_speed: float = 60
 var typing_time: float
@@ -22,10 +23,15 @@ var typing_time: float
 @export_enum("other", "self", "fish", "vitriol", "ocean", "self_expanded") var style: String = "other":
 	set(new_val):
 		style = new_val
-		if Engine.is_editor_hint() or is_node_ready():
+		if Engine.is_editor_hint() and is_node_ready():
 			change_style()
 
-@export var text: String = "placeholder message"
+@export var text: String = "placeholder message":
+	set(value):
+		text = value
+		if Engine.is_editor_hint() and is_node_ready():
+			text_label.text = text
+
 @onready var text_box: Label = %text
 
 
@@ -41,29 +47,29 @@ func _ready() -> void:
 func change_style() -> void:
 	var box = load("res://styles/chat_bubble_%s.tres" % style)
 	%PanelContainer.add_theme_stylebox_override("panel", box)
-	alignment = BoxContainer.ALIGNMENT_BEGIN
+	
+	bubble.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN | Control.SIZE_EXPAND
 	if style == "self":
-		alignment = BoxContainer.ALIGNMENT_END
+		bubble.size_flags_horizontal = Control.SIZE_SHRINK_END | Control.SIZE_EXPAND
 		speaker_label.visible = false
 	if style == "fish":
-		alignment = BoxContainer.ALIGNMENT_BEGIN
+		bubble.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN | Control.SIZE_EXPAND
 		speaker_label.visible = true
 	if style == "vitriol":
-		alignment = BoxContainer.ALIGNMENT_BEGIN
+		bubble.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN | Control.SIZE_EXPAND
 		speaker_label.visible = true
 	if style == "vitriol_unlabeled":
-		alignment = BoxContainer.ALIGNMENT_BEGIN
+		bubble.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN | Control.SIZE_EXPAND
 		speaker_label.visible = false
 	if style == "ocean":
-		alignment = BoxContainer.ALIGNMENT_BEGIN
+		bubble.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN | Control.SIZE_EXPAND
 		speaker_label.visible = true
 	if style == "ocean_unlabled":
-		alignment = BoxContainer.ALIGNMENT_BEGIN
+		bubble.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN | Control.SIZE_EXPAND
 		speaker_label.visible = false
 	if style == "self_expanded":
-		alignment = BoxContainer.ALIGNMENT_END
+		bubble.size_flags_horizontal = Control.SIZE_SHRINK_END | Control.SIZE_EXPAND
 		speaker_label.visible = false
 	if style == "other_unlabled":
-		alignment = BoxContainer.ALIGNMENT_BEGIN
+		bubble.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN | Control.SIZE_EXPAND
 		speaker_label.visible = false
-		

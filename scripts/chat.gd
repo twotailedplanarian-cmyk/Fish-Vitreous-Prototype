@@ -137,9 +137,9 @@ func push_message(text: String = "", style: String = "other") -> void:
 	if speaker_style != "self":
 		match speaker_name:
 			"Midward":
-				speaker_style = "other_unlabled"
+				speaker_style = "other"
 			"You":
-				speaker_style = "self_expanded"
+				speaker_style = "self"
 			_:
 				speaker_style = "other"
 	var speaker := speaker_style
