@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://ui680k8ru3l1"]
+
+[ext_resource type="Script" uid="uid://bnhtphg5rv3e4" path="res://scripts/select_button_wait.gd" id="1_3elu1"]
+[ext_resource type="Texture2D" uid="uid://bhk8aeebsh73g" path="res://sprites/title screen/FeatherPile.png" id="2_fms10"]
+[ext_resource type="Script" uid="uid://ch0qh5ijw1s3" path="res://scripts/title_return.gd" id="3_etq4y"]
+
+[node name="SceneSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -496.5
+offset_top = 279.5
+offset_right = 496.5
+offset_bottom = 408.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 90
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 86
+text = "PROTOTYPE"
+script = ExtResource("1_3elu1")
+
+[node name="FeatherPile" type="Sprite2D" parent="."]
+position = Vector2(960, 456)
+scale = Vector2(3.04264, 3.04264)
+texture = ExtResource("2_fms10")
+
+[node name="TitleReturn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 183.0
+offset_bottom = 162.0
+theme_override_font_sizes/font_size = 81
+text = "  X  "
+script = ExtResource("3_etq4y")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="TitleReturn" to="VBoxContainer/Button" method="_on_title_return_pressed"]
+[connection signal="pressed" from="TitleReturn" to="TitleReturn" method="_on_pressed"]

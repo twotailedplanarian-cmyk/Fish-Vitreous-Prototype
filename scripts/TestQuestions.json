@@ -1,0 +1,14 @@
+[
+  {
+    "options": ["Yes", "No", "Maybe", "Don't Know"],
+    "correctOptionIndex": 0
+  },
+  {
+    "options": ["Chair", "Forgo", "Animal", "Cage"],
+    "correctOptionIndex": 3
+  },
+  {
+    "options": ["Forever ago", "Yesterday", "Last Week", "Tomorrow"],
+    "correctOptionIndex": 2
+  }
+]

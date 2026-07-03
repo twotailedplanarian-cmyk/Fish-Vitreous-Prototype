@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhydwunytqxp7"
+path="res://.godot/imported/incorrect-LaurenPonder.mp3-ae8f493b470ad94e15e1c80af1e0fd45.mp3str"
+
+[deps]
+
+source_file="res://sounds/quiz game/incorrect-LaurenPonder.mp3"
+dest_files=["res://.godot/imported/incorrect-LaurenPonder.mp3-ae8f493b470ad94e15e1c80af1e0fd45.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

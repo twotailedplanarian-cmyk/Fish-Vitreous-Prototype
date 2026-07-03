@@ -1,0 +1,109 @@
+~ test
+do show_background()
+do SfxManager.play_sfx_door()
+do Global.change_animatic_animation("panel1")
+Midward: Hey. Greylorter. Look what I brought
+- What
+	do  Global.change_animatic_animation("panel2")
+	Midward: A copy of Finnegan's Wake
+	- Why?
+	You: That's literally the worst book to bring to the DMV
+- Something normal and sensible
+	do  Global.change_animatic_animation("panel2")
+	Midward: Nope
+	Midward: It's a copy of Finnegan's Wake
+	- Why?
+Midward: Because so many people are gonna want to say something
+Midward: I'm gonna look so approachable
+Midward: And awesome
+- Totally
+- Nobody will say anything
+	Midward: Why would anyone be reading Finnegan's Wake at the DMV?
+	Midward: I'd want to know
+	Midward: I'd ask me
+	- I admire your bravery
+do  Global.change_animatic_animation("panel3")
+Midward: What should I look like when I'm reading?
+- Stick your face into it
+- Look confused
+- Engage in uproarious laughter
+Midward: Got it
+do  Global.change_animatic_animation("panel4")
+Midward: And I can always count on you to be on your phone
+- Haha, that's true
+	do  Global.change_animatic_animation("panel5")
+	Midward: IPhone baby!
+	do wait(2)
+	do  Global.change_animatic_animation("panel6")
+	Midward: IPhone baby!
+	do  Global.change_animatic_animation("panel7.1")
+- Hey!
+	do  Global.change_animatic_animation("panel5")
+	Midward: IPhone baby!
+	do  Global.change_animatic_animation("panel6")
+	Midward: IPhone baby!
+	do  Global.change_animatic_animation("panel7.1")
+
+do start_timer(10)
+do wait_time(10)
+do  Global.change_animatic_animation("panel8")
+Midward: Hey Grey
+Midward: Would YOU whoop for my deading is a?
+- Yeah dude, of course [#mood=affirmative]
+- Wouldn't count on it [#mood=dismissive]
+- Only if it's a really good deading [#mood=affirmative]
+
+do SfxManager.play_sfx_number15()
+do  Global.change_animatic_animation("panel9")
+Midward: That's me
+- Good luck out there
+do SfxManager.play_sfx_footsteps()
+do SfxManager.play_sfx_door()
+do fade_transition()
+do wait_time(0.5)
+do  Global.change_animatic_animation("zpanel10")
+do wait_time(5)
+do SfxManager.play_sfx_number33()
+do wait_time(5)
+do SfxManager.play_sfx_footsteps()
+do SfxManager.play_sfx_door()
+do fade_to_black()
+
+do Global.start_quiz()
+
+~ after_quiz
+do  Global.change_animatic_animation("zpanel12")
+if Global.quiz_passed == true:
+	Midward: You look happy
+	- I passed
+		Midward: Nice, me too
+if Global.quiz_passed == false:
+	Midward: You look terrible
+	- I failed
+		Midward: Haha, didn't study?
+		Midward: I passed
+		- Ayyy!
+		- Man, fuck that
+do SfxManager.play_sfx_footsteps()
+do  Global.change_animatic_animation("zpanel13")
+Midward: Greylorter, nobody said anything, goddamnit!
+- That's just how the world is
+do  Global.change_animatic_animation("zpanel14")
+Midward: What do you mean by that?
+- You do stuff and nothing happens
+Midward: Uhh... no?
+do  Global.change_animatic_animation("zpanel15")
+- I think that's my mom
+	do  Global.change_animatic_animation("zpanel16")
+	Midward: You think Ms. Greylorter'll let me drive?
+	- Yeah, probably
+		Midward: Ha, nice
+	- You can give it a shot
+		Midward: I will
+	- Not a chance
+		Midward: Damn
+
+do fade_to_black()
+do Global.return_to_scene_select()
+
+placeholder line

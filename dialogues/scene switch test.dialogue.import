@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c45o5ylbq6d1a"
+path="res://.godot/imported/scene switch test.dialogue-b3f24a056a56134c25afefeb81feef16.tres"
+
+[deps]
+
+source_file="res://dialogues/scene switch test.dialogue"
+dest_files=["res://.godot/imported/scene switch test.dialogue-b3f24a056a56134c25afefeb81feef16.tres"]
+
+[params]
+
+defaults=true

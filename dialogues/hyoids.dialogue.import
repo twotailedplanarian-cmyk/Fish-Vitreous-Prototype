@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://batel3kl8jcjr"
+path="res://.godot/imported/hyoids.dialogue-79350a9aef7053d9eafc882a354e3942.tres"
+
+[deps]
+
+source_file="res://dialogues/hyoids.dialogue"
+dest_files=["res://.godot/imported/hyoids.dialogue-79350a9aef7053d9eafc882a354e3942.tres"]
+
+[params]
+
+defaults=true

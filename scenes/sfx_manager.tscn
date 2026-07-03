@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqihxxy6ga8d7"]
+
+[ext_resource type="AudioStream" uid="uid://c6ed3v6wjqyqw" path="res://sounds/sound_effects/number33_taknation.wav" id="1_a4b8v"]
+[ext_resource type="Script" uid="uid://cflpf0wo7jkjq" path="res://scripts/sfx_manager.gd" id="1_phwnr"]
+[ext_resource type="AudioStream" uid="uid://ieh0gtejut5g" path="res://sounds/sound_effects/number15_taknation.wav" id="2_phwnr"]
+[ext_resource type="AudioStream" uid="uid://dc887o7wq2wej" path="res://sounds/sound_effects/400329__n-razm__door_open.wav" id="3_byfxn"]
+[ext_resource type="PackedScene" uid="uid://hqbl3bj0hm35" path="res://scenes/background_music.tscn" id="4_h2k0q"]
+[ext_resource type="AudioStream" uid="uid://cdwt4l20nhpiw" path="res://sounds/sound_effects/button_press_freemaster2.wav" id="5_byfxn"]
+[ext_resource type="AudioStream" uid="uid://yqptys8wbwrr" path="res://sounds/sound_effects/message_send_hannahj40.wav" id="6_h2k0q"]
+[ext_resource type="AudioStream" uid="uid://tlwgl2kovcne" path="res://sounds/sound_effects/footsteps_natty23.wav" id="7_df6my"]
+[ext_resource type="AudioStream" uid="uid://qndih7rquq1x" path="res://sounds/music/Classicals.de - Chopin - Funeral March, Op. posth. 72 n. 2 in C minor.mp3" id="9_xl5ak"]
+
+[node name="SFXManager" type="Node"]
+script = ExtResource("1_phwnr")
+
+[node name="SFX_Number33" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_a4b8v")
+
+[node name="SFX_Number15" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_phwnr")
+
+[node name="SFX_Door" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_byfxn")
+
+[node name="SFX_Button" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_byfxn")
+
+[node name="SFX_Send" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_h2k0q")
+volume_db = 10.706
+
+[node name="SFX_Footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_df6my")
+volume_db = 10.706
+
+[node name="Music_FuneralMarch" parent="." instance=ExtResource("4_h2k0q")]
+stream = ExtResource("9_xl5ak")
+volume_db = -7.125

@@ -1,0 +1,170 @@
+[gd_scene load_steps=13 format=3 uid="uid://blxr7x02dv3uw"]
+
+[ext_resource type="Script" uid="uid://c7mx2sptui0km" path="res://scripts/quiz_game.gd" id="1_sqhfu"]
+[ext_resource type="Resource" uid="uid://bagidh3cp7ue4" path="res://resources/quiz_theme/theme_varied.tres" id="2_sqhfu"]
+[ext_resource type="Texture2D" uid="uid://cfipwfyxth4ac" path="res://sprites/compressed animations/test click/TestingClick0201.png" id="3_77ax6"]
+[ext_resource type="AudioStream" uid="uid://bhydwunytqxp7" path="res://sounds/quiz game/incorrect-LaurenPonder.mp3" id="3_txix1"]
+[ext_resource type="Texture2D" uid="uid://dvmby35pvemcl" path="res://sprites/compressed animations/test click/TestingClick0202.png" id="4_fw0og"]
+[ext_resource type="AudioStream" uid="uid://ds7u71tgarbni" path="res://sounds/quiz game/538147__fupicat__correct-bell.wav" id="4_mwbmr"]
+[ext_resource type="Texture2D" uid="uid://r80k8t8tu16t" path="res://sprites/compressed animations/test click/TestingClick0203.png" id="5_flxo0"]
+[ext_resource type="Texture2D" uid="uid://cowbdfqkyf14b" path="res://sprites/compressed animations/test click/TestingClick0204.png" id="6_4vrhi"]
+[ext_resource type="Texture2D" uid="uid://dciijga0q0gn5" path="res://sprites/compressed animations/test click/TestingClick0205.png" id="7_0f8m2"]
+[ext_resource type="Texture2D" uid="uid://epu1qxgowg0k" path="res://sprites/compressed animations/test click/TestingClick0206.png" id="8_uiw85"]
+[ext_resource type="Texture2D" uid="uid://dikk0w8x6i3kq" path="res://sprites/compressed animations/test click/TestingClick0207.png" id="9_elikl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ewdlq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_77ax6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fw0og")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_flxo0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4vrhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0f8m2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_uiw85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_elikl")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Quiz Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sqhfu")
+quiz = ExtResource("2_sqhfu")
+color_right = Color(0, 1, 0, 1)
+color_wrong = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ClickAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(962.222, 539.75)
+scale = Vector2(6.66975, 6.66975)
+sprite_frames = SubResource("SpriteFrames_ewdlq")
+frame_progress = 0.138678
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 760.0
+offset_top = 208.0
+offset_right = -480.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestionImage" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
+expand_mode = 1
+
+[node name="Options" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+columns = 2
+
+[node name="Option1" type="Button" parent="VBoxContainer/Options"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Option2" type="Button" parent="VBoxContainer/Options"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Option3" type="Button" parent="VBoxContainer/Options"]
+layout_mode = 2
+
+[node name="Option4" type="Button" parent="VBoxContainer/Options"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Score" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 776.0
+offset_top = 232.0
+offset_right = 928.0
+offset_bottom = 281.0
+theme_override_font_sizes/font_size = 35
+text = "SCORE: 0"
+
+[node name="AudioIncorrect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_txix1")
+
+[node name="AudioCorrect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mwbmr")
+
+[node name="GameOver" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 752.0
+offset_top = 200.0
+offset_right = -472.0
+offset_bottom = -352.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -141.0
+offset_right = 285.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FinalPoints" type="Label" parent="GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "Points: 0/0"
+horizontal_alignment = 1
+
+[node name="FinalAssessment" type="Label" parent="GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "Assessment: FAIL"
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/Options/Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options/Option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options/Option3" to="." method="_on_option_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options/Option4" to="." method="_on_option_4_pressed"]
+[connection signal="pressed" from="GameOver/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://u6ju3mq0t77e"]
+
+[ext_resource type="Texture2D" uid="uid://7vj4gqva5av7" path="res://sprites/UI elements/speech bubble style other.png" id="1_gyimj"]
+
+[resource]
+texture = ExtResource("1_gyimj")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0

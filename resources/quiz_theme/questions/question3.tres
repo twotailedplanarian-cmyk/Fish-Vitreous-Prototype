@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=3 format=3 uid="uid://dm7no7lyowy6y"]
+
+[ext_resource type="Script" uid="uid://cbxw2ete0gq00" path="res://scripts/resources/question.gd" id="1_kseh5"]
+[ext_resource type="Texture2D" uid="uid://ljkq75f2s510" path="res://sprites/AchaemenidesSpritesheet-13x3.png" id="1_q2uxr"]
+
+[resource]
+script = ExtResource("1_kseh5")
+type = 1
+question_image = ExtResource("1_q2uxr")
+options = Array[String](["IDK", "Maybe", "No", "Yes"])
+correct = "No"
+metadata/_custom_type_script = "uid://cbxw2ete0gq00"

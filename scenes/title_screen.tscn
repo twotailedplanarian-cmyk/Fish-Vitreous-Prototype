@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=3 uid="uid://44hoxxbijsi"]
+
+[ext_resource type="Script" uid="uid://cxb7af60g7aie" path="res://scripts/scene_select_button.gd" id="1_fgkus"]
+[ext_resource type="Script" uid="uid://d3ei3c4jiuo7r" path="res://scripts/title_screen.gd" id="1_s4lrb"]
+[ext_resource type="Texture2D" uid="uid://i1jgonrj0vv1" path="res://sprites/title screen/Introduction.png" id="2_sa3yf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgrm8"]
+bg_color = Color(0.165656, 0.165656, 0.165656, 1)
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s4lrb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 840.0
+offset_right = 1776.0
+offset_bottom = 984.0
+theme_override_constants/separation = 897
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Scene Select"
+script = ExtResource("1_fgkus")
+
+[node name="Credits" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Credits"
+
+[node name="Introduction" type="Sprite2D" parent="."]
+position = Vector2(976, 536)
+scale = Vector2(3.49138, 3.49138)
+texture = ExtResource("2_sa3yf")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 104.0
+offset_top = 48.0
+offset_right = 1848.0
+offset_bottom = 1032.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mgrm8")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 113.64)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[b][/b]CODING HELP"
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 80
+text = "AUDIO"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 40
+text = "Yaika Race - Initial Vertical Dialogue System Build"
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 40
+text = "Chopin - Funeral March, Op. posth. 72 n. 2 in C minor - Classicals.de
+
+FREESOUND
+N-Razm - Door opening
+Natty23 - Footsteps
+Freemaster2 - Button press
+Hannahj40 - Message send
+Taknation - DMV calling number
+"
+horizontal_alignment = 1
+
+[node name="ExitCredits" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 71
+text = "EXIT"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ExitCredits" to="." method="_on_exit_credits_pressed"]

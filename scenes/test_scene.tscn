@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1ohvcwpypk67"]
+
+[ext_resource type="PackedScene" uid="uid://oj5vu2tr8se5" path="res://scenes/chat.tscn" id="1_o5qli"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="chat" parent="." instance=ExtResource("1_o5qli")]
+offset_left = 1024.0
+offset_top = 432.0
+offset_right = 1024.0
+offset_bottom = 432.0

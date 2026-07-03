@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://bph04a0oorllg"]
+
+[ext_resource type="Script" uid="uid://xonc6wei8gts" path="res://scripts/option_button.gd" id="1_3ob2s"]
+[ext_resource type="FontFile" uid="uid://bvjggau7brm36" path="res://fonts/Roboto-VariableFont_wdth,wght.ttf" id="1_rpim6"]
+[ext_resource type="Texture2D" uid="uid://c15tsk6bogtca" path="res://sprites/UI elements/option button.png" id="2_yuh0f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c5ecr"]
+texture = ExtResource("2_yuh0f")
+
+[sub_resource type="Animation" id="Animation_yuh0f"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_rpim6"]
+resource_name = "options_appear"
+length = 0.2
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c5ecr"]
+_data = {
+&"RESET": SubResource("Animation_yuh0f"),
+&"options_appear": SubResource("Animation_rpim6")
+}
+
+[node name="option_button" type="Button"]
+custom_minimum_size = Vector2(0, 80)
+offset_right = 184.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_rpim6")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxTexture_c5ecr")
+text = "Template"
+script = ExtResource("1_3ob2s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_c5ecr")
+}
+autoplay = "options_appear"
