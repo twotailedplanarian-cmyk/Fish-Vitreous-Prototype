@@ -155,16 +155,21 @@ func push_message(text: String = "", style: String = "other") -> void:
 		computed_total += 0.8
 	#Instantiates chat bubble scene
 	if message_text:
-		var bubble = bubble_scene.instantiate()
+		var bubble: ChatBubble = bubble_scene.instantiate()
 		bubble.style = speaker_style
 		bubble.text = message_text
 		bubble.speaker_name = speaker_name
 		messages.add_child(bubble)
+		bubble.fade_in()
 		if speaker == "self" or speaker_name == "You":
 			SfxManager.play_sfx_send()
 		else:
 			SfxManager.play_sfx_button()
 		await scroll_maximum()
+	# awaits are dangerous especially if we're in the middle of freeing a scene.
+	# being aware if we're in the middle of being deleted is important
+	if !is_inside_tree():
+		return
 	last_speaker = speaker
 	last_message_text = message_text
 	last_message_speaker = speaker
@@ -173,27 +178,29 @@ func push_message(text: String = "", style: String = "other") -> void:
 		show_options(current_line.responses)
 		awaiting_response = true
 		return
-	#Not sure I understand this part, I think it just makes sure current actions are completed before moving on
-	var tree := get_tree()
-	if tree == null:
-		return
 	await get_tree().create_timer(computed_total).timeout
+	if !is_inside_tree():
+		return
 	if not auto_advance_task_running and not awaiting_response and not dialogue_freeze:
 		auto_advance_task_running = true
 		await auto_advance_loop()
 
-
+var scroll_tween: Tween
 func scroll_maximum() -> void:
-	var tree := get_tree()
-	if tree == null:
+	if !is_inside_tree():
 		return
-	await get_tree().process_frame
 	await get_tree().process_frame
 	if !is_inside_tree():
 		return
+	if scroll_tween:
+		scroll_tween.kill()
+	scroll_tween = create_tween()
 	var vbar = messages_scroll.get_v_scroll_bar()
-	if vbar:
-		messages_scroll.scroll_vertical = vbar.max_value
+	if not vbar:
+		return
+	var duration: float = 0.4
+	scroll_tween.tween_property(messages_scroll, ^"scroll_vertical", vbar.max_value, duration).set_ease(Tween.EASE_OUT)
+	await scroll_tween.finished
 
 #Makes options visible
 func show_options(options: Array[DialogueResponse]) -> void:
@@ -211,11 +218,17 @@ func clear_options() -> void:
 	for child in options_container.get_children():
 		child.queue_free()
 
+func set_options_disabled(toggle: bool) -> void:
+	for child in options_container.get_children():
+		child.disabled = toggle
+
 #Controls option panel
 func option_pressed(button: ChatOptionButton) -> void:
 	#Prevents options from showing when other character is speaking
 	if dialogue_freeze:
 		return
+	# disable the options so that they're not clickable anymore
+	set_options_disabled(true)
 	#Sets text for options
 	var response = button.response
 	#Waits for message to send, then clears the options
