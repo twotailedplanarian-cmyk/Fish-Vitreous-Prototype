@@ -1,14 +1,14 @@
 [gd_resource type="StyleBoxTexture" format=3 uid="uid://u6ju3mq0t77e"]
 
-[ext_resource type="Texture2D" uid="uid://b74w8uatu8y8" path="res://sprites/UI elements/speech bubble style other_truesize.png" id="1_gyimj"]
+[ext_resource type="Texture2D" uid="uid://rycr30e6eglu" path="res://sprites/UI elements/speech_bubble_other_lowres.png" id="1_gyimj"]
 
 [resource]
-content_margin_left = 11.0
-content_margin_top = 7.0
-content_margin_right = 14.0
-content_margin_bottom = 8.0
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 12.0
 texture = ExtResource("1_gyimj")
-texture_margin_left = 22.0
-texture_margin_top = 22.0
-texture_margin_right = 22.0
-texture_margin_bottom = 22.0
+texture_margin_left = 26.0
+texture_margin_top = 26.0
+texture_margin_right = 26.0
+texture_margin_bottom = 28.0

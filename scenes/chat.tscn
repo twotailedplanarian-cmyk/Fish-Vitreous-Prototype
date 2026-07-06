@@ -188,7 +188,6 @@
 [ext_resource type="Texture2D" uid="uid://bikrkc5n7npoy" path="res://sprites/UI elements/PhoneBackground.png" id="200_00k6v"]
 [ext_resource type="Texture2D" uid="uid://cfu2rlmq3wndi" path="res://sprites/compressed animations/animation 15/IsThat0326.png" id="200_q6wsa"]
 [ext_resource type="Texture2D" uid="uid://b8tliocbjk8ry" path="res://sprites/compressed animations/animation 15/IsThat0327.png" id="201_iwrph"]
-[ext_resource type="FontFile" uid="uid://cdd2pd1n2i8ex" path="res://fonts/roboto/Roboto-Bold.ttf" id="201_vsyx1"]
 [ext_resource type="Texture2D" uid="uid://bacay1lsbmf1l" path="res://sprites/compressed animations/animation 15/IsThat0328.png" id="202_45nok"]
 [ext_resource type="Texture2D" uid="uid://uboxnu3py8ip" path="res://sprites/compressed animations/animation 16/MyMom0318.png" id="203_infs0"]
 [ext_resource type="Texture2D" uid="uid://dp5sc1b2gu75a" path="res://sprites/compressed animations/animation 16/MyMom0319.png" id="204_ka5vu"]
@@ -1401,6 +1400,7 @@ offset_bottom = 1062.0
 texture = ExtResource("200_00k6v")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1769088592]
+texture_filter = 2
 layout_mode = 0
 offset_left = 112.0
 offset_top = 208.0
@@ -1422,22 +1422,46 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 theme_override_constants/separation = -2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1362331841]
-custom_minimum_size = Vector2(0, 76.06)
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2030106852]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("201_vsyx1")
-theme_override_font_sizes/normal_font_size = 50
-bbcode_enabled = true
+theme_override_constants/margin_bottom = 4
+
+[node name="ContactPanel" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1694087987]
+layout_mode = 2
+
+[node name="ContactHeader" type="Control" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/ContactPanel" unique_id=1839854033]
+custom_minimum_size = Vector2(0, 98)
+layout_mode = 2
+
+[node name="ContactNameLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/ContactPanel/ContactHeader" unique_id=711165285]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
 text = "MIDWARD"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TypingLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/ContactPanel/ContactHeader" unique_id=1059977330]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 74.0
+offset_right = 488.0
+offset_bottom = 96.333336
+text = "is typing..."
+horizontal_alignment = 1
 
 [node name="messages_scroll" type="ScrollContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1919231010]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 
 [node name="messages" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/messages_scroll" unique_id=173449350]
 unique_name_in_owner = true
