@@ -2,11 +2,10 @@
 class_name ChatBubble
 extends HBoxContainer
 
-@onready var text_label: Label = %text
+@onready var text_label: RichTextLabel = %text
 @onready var speaker_label: Label = %SpeakerLabel
 @onready var panel_container: PanelContainer = %PanelContainer
 @onready var bubble: VBoxContainer = %bubble
-@onready var text_box: Label = %text
 
 
 @export var speaker_name: String = "":

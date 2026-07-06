@@ -20,6 +20,9 @@ extends Control
 @export var start_dialogue_title: String
 @export var option_button: PackedScene
 
+@onready var contact_name_label: Label = %ContactNameLabel
+@onready var typing_label: Label = %TypingLabel
+
 var quiz_game = load("res://scenes/quiz_game.tscn")
 
 var current_line: DialogueLine
@@ -178,7 +181,9 @@ func push_message(text: String = "", style: String = "other") -> void:
 		show_options(current_line.responses)
 		awaiting_response = true
 		return
+	typing_label.show()
 	await get_tree().create_timer(computed_total).timeout
+	typing_label.hide()
 	if !is_inside_tree():
 		return
 	if not auto_advance_task_running and not awaiting_response and not dialogue_freeze:
@@ -237,7 +242,9 @@ func option_pressed(button: ChatOptionButton) -> void:
 	current_response = response
 	clear_options()
 	var reply_delay := 1.5
+	typing_label.show()
 	await get_tree().create_timer(reply_delay).timeout
+	typing_label.hide()
 	advance_dialogue()
 
 #Change animations

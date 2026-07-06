@@ -5,8 +5,13 @@
 [ext_resource type="StyleBox" uid="uid://u6ju3mq0t77e" path="res://styles/chat_bubble_other.tres" id="3_2gcjb"]
 [ext_resource type="Texture2D" uid="uid://c15tsk6bogtca" path="res://sprites/UI elements/option button.png" id="4_2gcjb"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_f8oay"]
-font_size = 32
+[sub_resource type="Theme" id="Theme_2gcjb"]
+default_font_size = 32
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(1, 1, 1, 1)
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/shadow_outline_size = 1
 
 [sub_resource type="Animation" id="Animation_gmev1"]
 length = 0.001
@@ -69,6 +74,7 @@ _data = {
 }
 
 [node name="chat_bubble" type="HBoxContainer" unique_id=1384071971]
+texture_filter = 2
 custom_minimum_size = Vector2(488, 0)
 offset_right = 488.0
 offset_bottom = 60.0
@@ -98,17 +104,17 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_2gcjb")
 
-[node name="text" type="Label" parent="bubble/PanelContainer" unique_id=286351718]
+[node name="text" type="RichTextLabel" parent="bubble/PanelContainer" unique_id=77910828]
 unique_name_in_owner = true
-modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme = SubResource("Theme_2gcjb")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
 text = "placeholder message"
-label_settings = SubResource("LabelSettings_f8oay")
-autowrap_mode = 3
+fit_content = true
 
 [node name="TransparencyAnimation" type="AnimationPlayer" parent="." unique_id=1466722970]
 libraries/ = SubResource("AnimationLibrary_8q33v")
