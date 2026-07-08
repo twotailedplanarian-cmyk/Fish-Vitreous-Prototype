@@ -4,6 +4,7 @@ Message-based visual novel prototype
 CREDITS:
 CODING HELP:
   Yaika Race - Initial Vertical Dialogue System Build
+  Aleksandr 'Crystalwarrior' Varnavskii - UI refinement
 
 
 AUDIO:
